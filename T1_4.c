@@ -1,6 +1,7 @@
 #include<stdio.h>
 int main()
 {
+ //int a=20;
  char *a[2]={"temp","3579"};
  printf("%c",*(a[1]+1));
  printf("%c",(*(a+1))[2]);
