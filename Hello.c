@@ -1,7 +1,7 @@
 #include<stdio.h>
+#define tradition "Hello World\n"
 int main()
 {
-
-printf("Hello World\n");
-
+printf(tradition);
+return 0;
 }
