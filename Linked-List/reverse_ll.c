@@ -1,5 +1,5 @@
 //program to create and reverse a linked list
-#include "ll.c"
+#include "ll.h"
 #include<stdio.h>
 int main()
 {

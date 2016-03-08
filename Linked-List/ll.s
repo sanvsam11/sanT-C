@@ -188,7 +188,12 @@ Ltmp14:
 	movl	$3, %edi
 	callq	_addElement
 	callq	_printList
-	xorl	%eax, %eax
+	leaq	L_.str1(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	xorl	%ecx, %ecx
+	movl	%eax, -8(%rbp)          ## 4-byte Spill
+	movl	%ecx, %eax
 	addq	$16, %rsp
 	popq	%rbp
 	retq
@@ -200,6 +205,9 @@ Ltmp14:
 	.section	__TEXT,__cstring,cstring_literals
 L_.str:                                 ## @.str
 	.asciz	"%d\n"
+
+L_.str1:                                ## @.str1
+	.asciz	"trial statment"
 
 
 .subsections_via_symbols

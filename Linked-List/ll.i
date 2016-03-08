@@ -6,6 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "ll.c" 2
 
+
+
 # 1 "/usr/include/stdio.h" 1 3 4
 # 64 "/usr/include/stdio.h" 3 4
 # 1 "/usr/include/sys/cdefs.h" 1 3 4
@@ -443,7 +445,7 @@ extern int __vsprintf_chk (char * restrict, int, size_t,
 extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
        const char * restrict, va_list);
 # 493 "/usr/include/stdio.h" 2 3 4
-# 3 "ll.c" 2
+# 5 "ll.c" 2
 # 1 "/usr/include/stdlib.h" 1 3 4
 # 65 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/include/sys/wait.h" 1 3 4
@@ -1609,7 +1611,7 @@ unsigned long long
 
 extern char *suboptarg;
 void *valloc(size_t);
-# 4 "ll.c" 2
+# 6 "ll.c" 2
 struct inode{
 int element;
 struct inode * next;
@@ -1648,5 +1650,6 @@ createList(1);
 addElement(2);
 addElement(3);
 printList();
+printf("trial statment");
 return 0;
 }
