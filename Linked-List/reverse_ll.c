@@ -3,10 +3,10 @@
 #include<stdio.h>
 int main()
 {
-// printf("import successful\n");
-
-createList(1);
+int *p;
+p=(int*)createList(1);
 addElement(2);
 addElement(3);
+reverseList(p);
 printList();
 return 0;}

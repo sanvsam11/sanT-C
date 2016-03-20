@@ -7,9 +7,10 @@ struct inode * next;
 };
 typedef struct inode nodetype;
 nodetype *head,*c,*bc;
-void createList(int element){					// create list or create head function
+nodetype* createList(int element){					// create list or create head function
 head=(nodetype*)malloc(sizeof(nodetype)); 
 head->element=element;head->next=NULL;
+return head;
 }
 _Bool checkEmpty(nodetype* h){return (h==NULL)?1:0;}     //check if list is empty function
 void addElement(int element){				//insert new element function
@@ -30,6 +31,7 @@ void printList(){                    				//printlist function
 c=head;
 while(c!=NULL){printf("%d\n",c->element);c=c->next;}
 }
+/*
 int main(){
 //printf("Compiled linkedlist successfully\n");
 createList(1);
@@ -39,4 +41,4 @@ printList();
 printf("trial statment");
 return 0;
 }
-
+*/
