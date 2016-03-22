@@ -1,44 +1,44 @@
-// code to create a linked list
 #include<stdio.h>
 #include<stdlib.h>
-struct inode{							//node struct definition
-int element;
-struct inode * next;
+#include "ll.h"
+/*
+struct node{
+ int element;
+ struct node * next;
 };
-typedef struct inode nodetype;
-nodetype *head,*c,*bc;
-nodetype* createList(int element){					// create list or create head function
-head=(nodetype*)malloc(sizeof(nodetype)); 
-head->element=element;head->next=NULL;
-return head;
+*/
+struct node* createList(int firstElement){
+ struct node *head = (struct node*) malloc(sizeof(struct node));
+ head->element = firstElement;
+ head->next = 0;
+ return head;
 }
-_Bool checkEmpty(nodetype* h){return (h==NULL)?1:0;}     //check if list is empty function
-void addElement(int element){				//insert new element function
- nodetype* newnode;
-newnode=(nodetype*)malloc(sizeof(nodetype));
-newnode->element=element;
-newnode->next=NULL;
-c=head;
-while(c->next!=NULL)c=c->next;
-c->next=newnode;
+void addElement(struct node *head,int element){
+ struct node *newnode = (struct node*) malloc (sizeof(struct node));
+ struct node *cursor=head; 
+newnode->element = element;
+ newnode->next = 0;
+ while(cursor->next!=0)cursor = cursor->next;
+ cursor->next = newnode;
 }
-int removeLastElement(){c=head;while(c->next!=0){bc=c;c=c->next;} // delete last element function
-int removed_element = c->element;
-bc->next=NULL;
-return removed_element;
+void deleteElement(struct node *head,int element){
+ struct node *cursor;
+ cursor = head;
+ while (cursor->element!=element&&cursor!=0)cursor=cursor->next;
 }
-void printList(){                    				//printlist function
-c=head;
-while(c!=NULL){printf("%d\n",c->element);c=c->next;}
+void printList(struct node *head){printf("%d->",head->element);
+ while((head=head->next)!=0) printf("%d->",head->element);
 }
 /*
-int main(){
-//printf("Compiled linkedlist successfully\n");
-createList(1);
-addElement(2);
-addElement(3);
-printList();
-printf("trial statment");
-return 0;
+int main(int argc,char* argv[])
+{
+ struct node *mylist;
+ mylist = createList(1);
+ addElement(mylist,2);
+ addElement(mylist,3);
+ addElement(mylist,4);
+ deleteElement(mylist,3);
+ printList(mylist);
+ return 0; 
 }
 */
