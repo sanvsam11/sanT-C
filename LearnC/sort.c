@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<errno.h>
 #include<stdlib.h>
+#include<string.h>
+
 void die(const char* message){
  if(errno) perror(message);
  else printf("Error: %s\n",message);
@@ -15,16 +17,17 @@ int descending(double a,double b){
  else return 0;
 }
 double* sortFunction(double input[],int n,int (*compFun)(double a,double b)){
- for(int i=0;i<n;i++)
+ double *ip = (double*) malloc(sizeof(double)*n); 
+ memcpy(ip,input,n*sizeof(double));
+for(int i=0;i<n;i++)
   for(int j=i+1;j<n;j++)
  {
-  if(compFun(input[i],input[j])>0){
-  double temp = input[j];
-  input[j] = input[i];
-  input[i] = temp; 
+  if(compFun(ip[i],ip[j])>0){
+  double temp = ip[j];
+  ip[j] = ip[i];
+  ip[i] = temp; 
    }
  }
-double *ip = input;
 return ip;
 }
 void printSequence(double *a,int n){
@@ -33,10 +36,12 @@ void printSequence(double *a,int n){
 int main(int argc,char* argv[]){
  if(argc<3) die("Usage: sort n 1 2 3 4 5 ..");
  int n = (int)argv[1];
- double a[n],*ap;
+ double *a,*ap;
+ a = (double*)malloc(sizeof(double)*n);
  for(int i=0;i<n;i++) a[i] = (double)*argv[i+2];
  ap = sortFunction(a,n,ascending);
- printSequence(a,n);
- return 0;
+ printSequence(ap,n);
+ free (ap);free(a);
+return 0;
 }
 
