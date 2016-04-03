@@ -11,5 +11,5 @@ int main(int argc,char*argv[])
  for(k=i;k>j;k++) printf("%d",a[i][k]);
  for(k=i;k>j;k++) printf("%d",a[k][j]);
 }
-return 1;
+return 0;
 }

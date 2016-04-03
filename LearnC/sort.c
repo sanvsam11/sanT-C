@@ -34,12 +34,15 @@ void printSequence(double *a,int n){
  for(int i=0;i<n;i++) printf("%f\n",*(a+i));
 }
 int main(int argc,char* argv[]){
- if(argc<3) die("Usage: sort n 1 2 3 4 5 ..");
- int n = (int)argv[1];
- double *a,*ap;
+// if(argc<3) die("Usage: sort 1 2 3 4 5 ..");
+ //int n = (int)argv[1];
+  int n=0;
+printf("Enter N:");scanf("%d",&n); 
+double *a,*ap;
  a = (double*)malloc(sizeof(double)*n);
- for(int i=0;i<n;i++) a[i] = (double)*argv[i+2];
- ap = sortFunction(a,n,ascending);
+ printf("\n Enter the sequence");
+for(int i=0;i<n;i++) scanf("%lf",&a[i]);
+ ap = sortFunction(a,n,descending);
  printSequence(ap,n);
  free (ap);free(a);
 return 0;
