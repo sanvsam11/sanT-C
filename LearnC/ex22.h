@@ -4,7 +4,7 @@
 extern int size;
 
 int get_age();
-void set_age(int);
-double update_ratio(double);
+void set_age(int age);
+double update_ratio(double ratio);
 void print_size();
 #endif
