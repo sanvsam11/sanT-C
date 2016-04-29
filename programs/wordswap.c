@@ -6,10 +6,10 @@ int main(){
   a[w][i]=c;i++;
  c=getc(stdin);
  if(c=='\n') break;
- else if(c==' ') {w++;c=getc(stdin);}
+else if(c==' ') {w++;c=getc(stdin);}
 }
-for(int k=w;k>0;k--){
- for(i=0,c=a[k][i];c!='\n';i++){
+for(int k=w;k>=0;k--){
+ for(i=0;a[k][i]!='\n';i++){
   printf("%c",a[k][i]);
 }
 printf("\n");
