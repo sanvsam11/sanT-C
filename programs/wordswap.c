@@ -1,18 +1,22 @@
 #include<stdio.h>
+#include<stdlib.h>
 int main(){
- char a[20][10],c=getc(stdin);
+ char word[20][10],*s,*p;
+ printf("Enter the sentence:");
+ s=(char*)malloc(sizeof(char)*100);
+fgets(s,100,stdin);p=s;
+// printf("%c %c",*p,*(p+2));
  int w=0,i=0;
- while(c!='\n'){
-  a[w][i]=c;i++;
- c=getc(stdin);
- if(c=='\n') break;
-else if(c==' ') {w++;c=getc(stdin);}
+while((*p)!='\n'){
+ if((*p)==' '){word[w][i]='\n';w++;i=0;}
+ else { word[w][i]=(*p);i++;}
+p++;}
+word[w][i]='\n';
+for(int j=w;j>=0;j--){
+ for(int k=0;(word[j][k]!='\n')&&(word[j][k]!='\0');k++) 
+ printf("%c",word[j][k]);
+ printf("\n");
 }
-for(int k=w;k>=0;k--){
- for(i=0;a[k][i]!='\n';i++){
-  printf("%c",a[k][i]);
-}
-printf("\n");
-}
+free(s);
 return 0;
 }
