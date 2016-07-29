@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include "ll.h"
-
+//#include "ll.c"
 struct node* reverseList(struct node* head){
  if(head==0) return 0;
  struct node* a,*b;
@@ -21,6 +21,7 @@ int main(int argc,char* argv[])
  addElement(list,3);
  addElement(list,2);
  addElement(list,1);
+ printList(list);
  list = reverseList(list);
  printList(list);
  return 0;
